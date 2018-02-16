@@ -11,6 +11,7 @@
     "build": "NODE_ENV=production parcel build index.html --no-minify"
   },
   "dependencies": {
+    "bulma": "^0.6.2",
     "vue": "^2.5.10",
     "vue-loader": "^14.1.1",
     "vue-template-compiler": "^2.5.13"
