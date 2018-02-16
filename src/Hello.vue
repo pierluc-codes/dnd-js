@@ -11,6 +11,6 @@ export default {
     }
 };
 </script>
-˚K
+
 <style>
 </style>
