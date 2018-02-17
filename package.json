@@ -1,9 +1,7 @@
 {
-  "name": "parcel-vuejs-example",
-  "description": "Vue.js example using parcel bundler",
+  "name": "dnd-js",
+  "description": "Track your D&D encounter on the web!",
   "version": "1.0.0",
-  "author": "Vinayak Kulkarni",
-  "license": "MIT",
   "scripts": {
     "dev": "npm run development",
     "development": "NODE_ENV=development parcel index.html",

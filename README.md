@@ -1,6 +1,6 @@
-# Parcel Vue Example
+# D&D JS
 
-> Vue.js example using parcel bundler
+> Track your D&D encounter on the web!
 
 ## Build Setup
 
