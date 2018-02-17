@@ -25,10 +25,10 @@
             </tfoot>
             <tbody>
                 <tr v-for="player in players" :key="player.id" v-bind:class="{ 'is-selected': player.active}" >
-                    <td><img :src="player.image" /></td>
-                    <td>{{player.initiative}}</td>
-                    <td>{{player.name}}</td>
-                    <td><font-awesome-icon :icon="player.reaction.icon" :style="player.reaction.style" /></td>
+                    <td><Avatar :url="player.image" /></td>
+                    <td><Initiative :initiative="player.initiative" /></td>
+                    <td><Name :name="player.name" /></td>
+                    <td><Reaction :reaction="player.reaction" /></td>
                     <td>
                         <div class="tags" v-if="player.conditions">
                             <span class="tag" 
@@ -65,6 +65,11 @@
 </template>
 
 <script>
+import Avatar from './Avatar'
+import Initiative from './Initiative'
+import Name from './Name'
+import Reaction from './Reaction'
+
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { faCheck, faTimes } from '@fortawesome/fontawesome-free-solid'
 
@@ -74,15 +79,10 @@ export default {
       players: [
         {
           "id": 0,
-          "initiative": 20,
+          "initiative": 19,
           "image": "http://placekitten.com/g/64/64",
           "name": "Anomen",
-          "reaction": {
-              "icon": faCheck,
-              "style": {
-                  'color': 'green'
-              }
-          },
+          "reaction": true,
           "conditions": [
               {
                   "id": "0_DivineShield",
@@ -99,12 +99,7 @@ export default {
           "initiative": 19,
           "image": "http://placekitten.com/g/64/64",
           "name": "Liaaaaa",
-          "reaction": {
-              "icon": faTimes,
-              "style": {
-                  'color': 'red'
-              }
-          },
+          "reaction": false,
           "conditions": [
           ] 
         },
@@ -113,12 +108,7 @@ export default {
           "initiative": 18,
           "image": "http://placekitten.com/g/64/64",
           "name": "Gros zombie",
-          "reaction": {
-              "icon": faCheck,
-              "style": {
-                  'color': 'green'
-              }
-          },
+          "reaction": true,
           "conditions": [
           ] 
         },
@@ -127,12 +117,7 @@ export default {
           "initiative": 17,
           "image": "http://placekitten.com/g/64/64",
           "name": "Zombie qui court",
-          "reaction": {
-              "icon": faCheck,
-              "style": {
-                  'color': 'green'
-              }
-          },
+          "reaction": true,
           "conditions": [
           ],
         },
@@ -142,12 +127,7 @@ export default {
           "initiative": 16,
           "image": "http://placekitten.com/g/64/64",
           "name": "Jack",
-          "reaction": {
-              "icon": faCheck,
-              "style": {
-                  'color': 'green'
-              }
-          },
+          "reaction": true,
           "conditions": [] 
         },
         {
@@ -155,12 +135,7 @@ export default {
           "initiative": 16,
           "image": "http://placekitten.com/g/64/64",
           "name": "Alphonse",
-          "reaction": {
-              "icon": faCheck,
-              "style": {
-                  'color': 'green'
-              }
-          },
+          "reaction": true,
           "conditions": [
               {
                   "id": "0",
@@ -174,12 +149,7 @@ export default {
           "initiative": 11,
           "image": "http://placekitten.com/g/64/64",
           "name": "Sigur",
-          "reaction": {
-              "icon": faCheck,
-              "style": {
-                  'color': 'green'
-              }
-          },
+          "reaction": true,
           "conditions": [
               {
                   "id": "0",
@@ -212,12 +182,7 @@ export default {
           "initiative": 1,
           "image": "http://placekitten.com/g/64/64",
           "name": "Fargrim",
-          "reaction": {
-              "icon": faCheck,
-              "style": {
-                  'color': 'green'
-              }
-          },
+          "reaction": true,
           "conditions": [
               {
                   "id": "0",
@@ -230,7 +195,11 @@ export default {
     };
   },
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
+    Initiative,
+    Avatar,
+    Name,
+    Reaction
   }
 };
 </script>
