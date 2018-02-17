@@ -29,16 +29,7 @@
                     <td><Initiative :initiative="player.initiative" /></td>
                     <td><Name :name="player.name" /></td>
                     <td><Reaction :reaction="player.reaction" /></td>
-                    <td>
-                        <div class="tags" v-if="player.conditions">
-                            <span class="tag" 
-                                v-bind:class="{ 'is-danger': condition.isPenalty, 'is-success': condition.isBonus }" 
-                                v-for="condition in player.conditions" :key="condition.id">
-                                {{ condition.name }}
-                            </span>
-                        </div>
-                        <div v-else>-</div>
-                    </td>
+                    <td><ConditionList :conditions="player.conditions" /></td>
                     <td>
                         <div span v-if="player.concentration">
                             <span class="tag is-info">{{ player.concentration.name }}</span>
@@ -49,11 +40,11 @@
                         <div span v-if="player.deathSaving">
                             <span>
                                 {{player.deathSaving.success}}
-                                <font-awesome-icon icon="thumbs-up" />
+                                <!-- <font-awesome-icon icon="thumbs-up" /> -->
                             </span>
                             <span>
                                 {{player.deathSaving.failure}}
-                                <font-awesome-icon icon="thumbs-down" />
+                                <!-- <font-awesome-icon icon="thumbs-down" /> -->
                             </span>
                         </div>
                         <div v-else>-</div>
@@ -69,9 +60,7 @@ import Avatar from './Avatar'
 import Initiative from './Initiative'
 import Name from './Name'
 import Reaction from './Reaction'
-
-import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
-import { faCheck, faTimes } from '@fortawesome/fontawesome-free-solid'
+import ConditionList from './ConditionList'
 
 export default {
   data() {
@@ -158,12 +147,14 @@ export default {
               },
               {
                   "id": "0",
-                  "name": "Poisoned (2)",
+                  "name": "Poisoned",
+                  "countdown": 2,
                   "isPenalty": true
               },
               {
                   "id": "0",
-                  "name": "Paralyzed (33)",
+                  "name": "Paralyzed",
+                  "countdown": 33,
                   "isPenalty": true
               },
               {
@@ -195,11 +186,11 @@ export default {
     };
   },
   components: {
-    FontAwesomeIcon,
     Initiative,
     Avatar,
     Name,
-    Reaction
+    Reaction,
+    ConditionList
   }
 };
 </script>
