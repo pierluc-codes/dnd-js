@@ -29,7 +29,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
 .unavailable {
     color: red
 }
@@ -37,5 +36,4 @@ export default {
 .available {
     color: green
 }
-
 </style>
