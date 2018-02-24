@@ -1,138 +1,35 @@
 <template>
     <div class="container">
-        <PlayerList :players="players" />
+        <PlayerList :players="encounter.characters" />
     </div>
 </template>
 
 <script>
-import PlayerList from './PlayerList'
+import firebase from "firebase";
+import PlayerList from "./PlayerList";
+
+require('firebase/firestore')
+
+const firebaseApp = firebase.initializeApp({
+  apiKey: "AIzaSyC0-wlv8Xn9-4qHvihVVAqmmu4XWDuk928",
+  authDomain: "dnd-js.firebaseapp.com",
+  databaseURL: "https://dnd-js.firebaseio.com",
+  projectId: "dnd-js",
+  storageBucket: "dnd-js.appspot.com",
+  messagingSenderId: "1076195446824"
+});
+
+const firestore = firebaseApp.firestore();
 
 export default {
-    data() {
-        return {
-            players: [
-                {
-                "id": 1,
-                "initiative": 19,
-                "image": "http://placekitten.com/g/64/64",
-                "name": "Anomen",
-                "reaction": true,
-                "conditions": [
-                    {
-                        "id": "0_DivineShield",
-                        "name": "Divine shield",
-                        "isBonus": true
-                    }
-                ],
-                "concentration": {
-                    "name": "Faith armor"
-                }
-                },
-                {
-                "id": 2,
-                "initiative": 19,
-                "image": "http://placekitten.com/g/64/64",
-                "name": "Liaaaaa",
-                "reaction": false,
-                "conditions": [
-                ] 
-                },
-                {
-                "id": 3,
-                "initiative": 18,
-                "image": "http://placekitten.com/g/64/64",
-                "name": "Gros zombie",
-                "reaction": true,
-                "conditions": [
-                ] 
-                },
-                {
-                "id": 4,
-                "initiative": 17,
-                "image": "http://placekitten.com/g/64/64",
-                "name": "Zombie qui court",
-                "reaction": true,
-                "conditions": [
-                ],
-                },
-                {
-                "id": 5,
-                "active": true,
-                "initiative": 16,
-                "image": "http://placekitten.com/g/64/64",
-                "name": "Jack",
-                "reaction": true,
-                "conditions": [] 
-                },
-                {
-                "id": 6,
-                "initiative": 16,
-                "image": "http://placekitten.com/g/64/64",
-                "name": "Alphonse",
-                "reaction": true,
-                "conditions": [
-                    {
-                        "id": "0",
-                        "name": "Poisoned",
-                        "isPenalty": true
-                    }
-                ] 
-                },
-                {
-                "id": 7,
-                "initiative": 11,
-                "image": "http://placekitten.com/g/64/64",
-                "name": "Sigur",
-                "reaction": true,
-                "conditions": [
-                    {
-                        "id": "0",
-                        "name": "Unconcious",
-                        "isPenalty": true
-                    },
-                    {
-                        "id": "1",
-                        "name": "Poisoned",
-                        "countdown": 2,
-                        "isPenalty": true
-                    },
-                    {
-                        "id": "2",
-                        "name": "Paralyzed",
-                        "countdown": 33,
-                        "isPenalty": true
-                    },
-                    {
-                        "id": "3",
-                        "name": "Blessed",
-                        "isBonus": true
-                    },
-                ],
-                "deathSaving": {
-                    "success": 2,
-                    "failure": 1
-                } 
-                },
-                {
-                "id": 8,
-                "initiative": 1,
-                "image": "http://placekitten.com/g/64/64",
-                "name": "Fargrim",
-                "reaction": true,
-                "conditions": [
-                    {
-                        "id": "0",
-                        "name": "Poisoned",
-                        "isPenalty": true
-                    }
-                ] 
-                }
-            ]
-        };
-    },
-    components: {
-        PlayerList
-    }
+  firestore() {
+    return {
+      encounter: firestore.collection('encounters').doc('jyaAnXdhNU2GSQGAcgkg')
+    };
+  },
+  components: {
+    PlayerList
+  }
 };
 </script>
 
