@@ -24,9 +24,9 @@
         </tfoot>
         <tbody>
             <tr v-for="player in players" :key="player.id" v-bind:class="{ 'is-selected': player.active}" >
-                <td><Avatar :url="player.image" /></td>
+                <td><Avatar :baseReference="player.base" /></td>
                 <td><Initiative :initiative="player.initiative" /></td>
-                <td><Name :name="player.name" /></td>
+                <td><Name :baseReference="player.base" /></td>
                 <td><Reaction :reaction="player.reaction" /></td>
                 <td><ConditionList :conditions="player.conditions" /></td>
                 <td><Concentration :concentration="player.concentration"/></td>
@@ -61,5 +61,5 @@ export default {
     Concentration,
     DeathSaving
   }
-};
+}
 </script>

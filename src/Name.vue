@@ -1,13 +1,18 @@
 <template>
-    <span>{{name}}</span>
+    <span>{{player.name}}</span>
 </template>
 
 <script>
 export default {
   props: {
-    name: {
-      type: String,
+    baseReference: {
+      type: Object,
       required: true
+    }
+  },
+  firestore() {
+    return {
+      player: this.baseReference
     }
   }
 }

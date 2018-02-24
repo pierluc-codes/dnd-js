@@ -1,13 +1,18 @@
 <template>
-    <span><img :src="url" /></span>
+    <span><img :src="player.avatarUrl" /></span>
 </template>
 
 <script>
 export default {
   props: {
-    url: {
-      type: String,
+    baseReference: {
+      type: Object,
       required: true
+    }
+  },
+  firestore() {
+    return {
+      player: this.baseReference
     }
   }
 }
