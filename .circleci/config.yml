@@ -48,7 +48,7 @@ jobs:
       - run:
           name: Google cloud login
           command: |
-            echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+            echo $GCLOUD_SERVICE_KEY | base64 -d > ${HOME}/gcloud-service-key.json
       - run:
           name: Upload files
           command: |
