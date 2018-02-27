@@ -52,6 +52,6 @@ workflows:
   default:
     jobs:
       - build
-      - deploy
+      - deploy:
           requires:
             - build
