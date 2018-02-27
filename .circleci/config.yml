@@ -40,8 +40,8 @@ jobs:
       - image: google/cloud-sdk:alpine
     steps:
       - run:
-        name: Upload files
-        command: |
+          name: Upload files
+          command: |
             gsutil rsync -d -r dist gs://staging.dnd-js.appspot.com/
             gsutil acl ch -u AllUsers:R gs://staging.dnd-js.appspot.com/*.css
             gsutil acl ch -u AllUsers:R gs://staging.dnd-js.appspot.com/*.js
