@@ -5,13 +5,13 @@
 
 defaults: &defaults
   working_directory: ~/repo
-  docker:
-    - image: circleci/node:8
 
 version: 2
 jobs:
   build:
     <<: *defaults
+    docker:
+      - image: circleci/node:8
     steps:
       - checkout
       - restore_cache:
@@ -34,9 +34,24 @@ jobs:
           name: Release
           command: |
             yarn run build
+  deploy-staging:
+    <<: *defaults
+    docker:
+      - image: google/cloud-sdk:alpine
+    steps:
+      - run:
+        name: Upload files
+        command: |
+            gsutil rsync -d -r dist gs://staging.dnd-js.appspot.com/
+            gsutil acl ch -u AllUsers:R gs://staging.dnd-js.appspot.com/*.css
+            gsutil acl ch -u AllUsers:R gs://staging.dnd-js.appspot.com/*.js
+            gsutil acl ch -u AllUsers:R gs://staging.dnd-js.appspot.com/*.html
 
 workflows:
   version: 2
   default:
     jobs:
       - build
+      - deploy
+          requires:
+            - build
