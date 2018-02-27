@@ -19,21 +19,21 @@ jobs:
           - v1-dependencies-{{ checksum "yarn.lock" }}
           - v1-dependencies-
       - run: 
-        name: Install dependencies
-        command: |
-          yarn install --pure-lockfile
+          name: Install dependencies
+          command: |
+            yarn install --pure-lockfile
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
       - run:
-        name: Lint
-        command: |
-          yarn run lint
+          name: Lint
+          command: |
+            yarn run lint
       - run:
-        name: Release
-        command: |
-          yarn run build
+          name: Release
+          command: |
+            yarn run build
 
 workflows:
   version: 2
