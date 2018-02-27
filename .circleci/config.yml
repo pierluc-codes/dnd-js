@@ -8,23 +8,23 @@ defaults: &defaults
 
 deployment: &deployment
   <<: *defaults
-    docker:
-      - image: google/cloud-sdk:alpine
-    steps:
-      - attach_workspace:
-          at: dist
-      - run:
-          name: Google cloud login
-          command: |
-            echo $GCLOUD_SERVICE_KEY | base64 -d > ${HOME}/gcloud-service-key.json
-            gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
-      - run:
-          name: Upload files
-          command: |
-            gsutil rsync -d -r dist gs://${BUCKET}/
-            gsutil acl ch -u AllUsers:R gs://${BUCKET}/*.css
-            gsutil acl ch -u AllUsers:R gs://${BUCKET}/*.js
-            gsutil acl ch -u AllUsers:R gs://${BUCKET}/*.html
+  docker:
+    - image: google/cloud-sdk:alpine
+  steps:
+    - attach_workspace:
+        at: dist
+    - run:
+        name: Google cloud login
+        command: |
+          echo $GCLOUD_SERVICE_KEY | base64 -d > ${HOME}/gcloud-service-key.json
+          gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+    - run:
+        name: Upload files
+        command: |
+          gsutil rsync -d -r dist gs://${BUCKET}/
+          gsutil acl ch -u AllUsers:R gs://${BUCKET}/*.css
+          gsutil acl ch -u AllUsers:R gs://${BUCKET}/*.js
+          gsutil acl ch -u AllUsers:R gs://${BUCKET}/*.html
 
 version: 2
 jobs:
