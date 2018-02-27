@@ -49,6 +49,7 @@ jobs:
           name: Google cloud login
           command: |
             echo $GCLOUD_SERVICE_KEY | base64 -d > ${HOME}/gcloud-service-key.json
+            gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
       - run:
           name: Upload files
           command: |
