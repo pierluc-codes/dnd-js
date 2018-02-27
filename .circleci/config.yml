@@ -46,6 +46,10 @@ jobs:
       - attach_workspace:
           at: dist
       - run:
+          name: Google cloud login
+          command: |
+            echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+      - run:
           name: Upload files
           command: |
             gsutil rsync -d -r dist gs://staging.dnd-js.appspot.com/
