@@ -74,3 +74,6 @@ workflows:
       - deploy-staging:
           requires:
             - build
+      - deploy-production:
+          requires:
+            - deploy-staging
