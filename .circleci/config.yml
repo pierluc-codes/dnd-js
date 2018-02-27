@@ -6,6 +6,26 @@
 defaults: &defaults
   working_directory: ~/repo
 
+deployment: &deployment
+  <<: *defaults
+    docker:
+      - image: google/cloud-sdk:alpine
+    steps:
+      - attach_workspace:
+          at: dist
+      - run:
+          name: Google cloud login
+          command: |
+            echo $GCLOUD_SERVICE_KEY | base64 -d > ${HOME}/gcloud-service-key.json
+            gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+      - run:
+          name: Upload files
+          command: |
+            gsutil rsync -d -r dist gs://${BUCKET}/
+            gsutil acl ch -u AllUsers:R gs://${BUCKET}/*.css
+            gsutil acl ch -u AllUsers:R gs://${BUCKET}/*.js
+            gsutil acl ch -u AllUsers:R gs://${BUCKET}/*.html
+
 version: 2
 jobs:
   build:
@@ -40,24 +60,8 @@ jobs:
             - '*'
   deploy-staging:
     <<: *defaults
-    docker:
-      - image: google/cloud-sdk:alpine
-    steps:
-      - attach_workspace:
-          at: dist
-      - run:
-          name: Google cloud login
-          command: |
-            echo $GCLOUD_SERVICE_KEY | base64 -d > ${HOME}/gcloud-service-key.json
-            gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
-      - run:
-          name: Upload files
-          command: |
-            gsutil rsync -d -r dist gs://staging.dnd-js.appspot.com/
-            gsutil acl ch -u AllUsers:R gs://staging.dnd-js.appspot.com/*.css
-            gsutil acl ch -u AllUsers:R gs://staging.dnd-js.appspot.com/*.js
-            gsutil acl ch -u AllUsers:R gs://staging.dnd-js.appspot.com/*.html
-
+    environment:
+      - BUCKET: "staging.dnd-js.appspot.com"
 workflows:
   version: 2
   default:
