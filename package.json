@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "npm run development",
-    "development": "NODE_ENV=development parcel index.html",
-    "prod": "npm run build",
-    "build": "NODE_ENV=production parcel build index.html --public-url ./"
+    "lint": "npx eslint src scripts",
+    "development": "NODE_ENV=development npx parcel index.html",
+    "build": "NODE_ENV=production npx parcel build index.html --public-url ./"
   },
   "dependencies": {
     "@firebase/firestore": "^0.3.4",
