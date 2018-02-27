@@ -34,11 +34,15 @@ jobs:
           name: Release
           command: |
             yarn run build
+      - persist_to_workspace:
+          root: dist
   deploy-staging:
     <<: *defaults
     docker:
       - image: google/cloud-sdk:alpine
     steps:
+      - attach_workspace:
+          at: dist
       - run:
           name: Upload files
           command: |
