@@ -26,11 +26,11 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
-      -  run:
+      - run:
         name: Lint
         command: |
           yarn run lint
-      -  run:
+      - run:
         name: Release
         command: |
           yarn run build
