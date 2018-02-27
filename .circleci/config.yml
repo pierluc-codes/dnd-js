@@ -59,7 +59,7 @@ jobs:
           paths:
             - '*'
   deploy-staging:
-    <<: *defaults
+    <<: *deployment
     environment:
       - BUCKET: "staging.dnd-js.appspot.com"
 workflows:
