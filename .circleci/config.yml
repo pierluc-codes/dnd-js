@@ -56,12 +56,16 @@ jobs:
             yarn run build
       - persist_to_workspace:
           root: dist
-          paths:
+          paths:g
             - '*'
   deploy-staging:
     <<: *deployment
     environment:
       - BUCKET: "staging.dnd-js.appspot.com"
+  deploy-production:
+    <<: *deployment
+    environment:
+      - BUCKET: "dnd-js.appspot.com"
 workflows:
   version: 2
   default:
