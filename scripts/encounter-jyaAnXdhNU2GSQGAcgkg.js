@@ -11,6 +11,7 @@ const encounter = {
     "characters": [
         {
             id: 1,
+            show: true,
             initiative: 19,
             base: anomenRef,
             reaction: true,
@@ -27,6 +28,7 @@ const encounter = {
         },
         {
             id: 2,
+            show: true,
             initiative: 19,
             base: liaRef,
             reaction: false,
@@ -34,6 +36,7 @@ const encounter = {
         },
         {
             id: 5,
+            show: true,
             active: true,
             initiative: 16,
             base: jackRef,
@@ -42,6 +45,7 @@ const encounter = {
         },
         {
             id: 6,
+            show: true,
             initiative: 16,
             base: alphonseRef,
             reaction: true,
@@ -55,6 +59,7 @@ const encounter = {
         },
         {
             id: 7,
+            show: true,
             initiative: 11,
             base: sigurRef,
             reaction: true,
@@ -89,6 +94,7 @@ const encounter = {
         },
         {
             id: 8,
+            show: true,
             initiative: 1,
             base: fargrimRef,
             reaction: true,
