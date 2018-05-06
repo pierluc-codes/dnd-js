@@ -19,7 +19,12 @@ export default {
       let characters = this.encounter.characters
 
       if (characters && characters.length > 0) {
-        return characters.filter(player => player.show)
+        return characters
+          .filter(player => player.show)
+          .filter(player => player.initiative)
+          .sort((left, right) => { 
+            return parseInt(right.initiative) - parseInt(left.initiative)
+          })
       }
 
       return []
