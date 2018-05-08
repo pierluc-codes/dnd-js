@@ -1,5 +1,5 @@
 <template>
-    <div class="tags" v-if="conditions">
+    <div class="tags" v-if="hasConditions">
         <Condition v-for="condition in conditions" v-bind:key="condition.id" :condition="condition" />
     </div>
     <div v-else>-</div>
@@ -13,6 +13,11 @@ export default {
     conditions: {
       type: Array,
       required: false
+    }
+  },
+  computed: {
+    hasConditions() {
+        return this.conditions && this.conditions.length > 0
     }
   },
   components: {

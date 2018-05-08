@@ -26,7 +26,7 @@
             <tr v-for="player in players" :key="player.id" v-bind:class="{ 'is-selected': player.active}" >
                 <td><Avatar :baseReference="player.base" /></td>
                 <td><Initiative :initiative="player.initiative" /></td>
-                <td><Name :baseReference="player.base" /></td>
+                <td><Name :baseReference="player.base" :specificName="player.monsterName" /></td>
                 <td><Reaction :reaction="player.reaction" /></td>
                 <td><ConditionList :conditions="player.conditions" /></td>
                 <td><Concentration :concentration="player.concentration"/></td>

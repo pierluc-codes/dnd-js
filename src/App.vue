@@ -11,7 +11,7 @@ import PlayerList from "./PlayerList"
 export default {
   firestore() {
     return {
-      encounter: db.collection('encounters').doc('jyaAnXdhNU2GSQGAcgkg')
+      encounter: db.collection('encounters').doc('miniatures_toat')
     }
   },
   computed: {

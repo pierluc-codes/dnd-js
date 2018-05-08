@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div span v-if="concentration">
+        <div span v-if="concentration && concentration.name">
             <span class="tag is-info">{{ concentration.name }}</span>
         </div>
         <div v-else>-</div>

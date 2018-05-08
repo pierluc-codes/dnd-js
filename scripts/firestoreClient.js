@@ -2,7 +2,7 @@ const firebase  = require("firebase")
 require('firebase/firestore')
 
 const firebaseApp = firebase.initializeApp({
-  apiKey: "",
+  apiKey: "AIzaSyC0-wlv8Xn9-4qHvihVVAqmmu4XWDuk928",
   authDomain: "dnd-js.firebaseapp.com",
   databaseURL: "https://dnd-js.firebaseio.com",
   projectId: "dnd-js",

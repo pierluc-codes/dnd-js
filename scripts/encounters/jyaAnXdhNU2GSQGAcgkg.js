@@ -1,11 +1,13 @@
 const db = require('./firestoreClient')
 
 const alphonseRef = db.collection('players').doc('alphonse')
-const anomenRef = db.collection('players').doc('anomen')
+const keldornRef = db.collection('players').doc('keldorn')
 const fargrimRef = db.collection('players').doc('fargrim')
 const jackRef = db.collection('players').doc('jack')
 const liaRef = db.collection('players').doc('lia')
 const sigurRef = db.collection('players').doc('sigur')
+
+const chuulRef = db.collection('monsters').doc('chuul')
 
 const encounter = {
     "characters": [
@@ -13,7 +15,7 @@ const encounter = {
             id: 1,
             show: true,
             initiative: 19,
-            base: anomenRef,
+            base: keldornRef,
             reaction: true,
             conditions: [
                 {
@@ -37,7 +39,7 @@ const encounter = {
         {
             id: 5,
             show: true,
-            active: true,
+            active: false,
             initiative: 16,
             base: jackRef,
             reaction: true,
@@ -95,7 +97,7 @@ const encounter = {
         {
             id: 8,
             show: true,
-            initiative: 1,
+            initiative: 99,
             base: fargrimRef,
             reaction: true,
             conditions: [
@@ -105,6 +107,15 @@ const encounter = {
                     isPenalty: true
                 }
             ]
+        },
+        {
+            id: 10,
+            show: true,
+            initiative: 1000,
+            base: chuulRef,
+            monsterName: "chuuul 1",
+            reaction: false,
+            conditions: []
         }
     ]
 }

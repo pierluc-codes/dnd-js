@@ -4,39 +4,44 @@ const players = [
     {
         "key": "alphonse",
         "name": "Alphonse",
-        "avatar": "http://placekitten.com/g/63/63"
+        "avatar": "https://storage.googleapis.com/dnd-js.appspot.com/avatars/alphonse.png"
     },
     {
-        "key": "anomen",
+        "key": "keldorn",
         "name": "Keldorn",
-        "avatar": "http://placekitten.com/g/62/62"
+        "avatar": "https://storage.googleapis.com/dnd-js.appspot.com/avatars/keldorn.png"
     },
     {
         "key": "fargrim",
         "name": "Fargrim",
-        "avatar": "http://placekitten.com/g/61/61"
+        "avatar": "https://storage.googleapis.com/dnd-js.appspot.com/avatars/fargrim.png"
     },
     {
         "key": "jack",
         "name": "Jack",
-        "avatar": "http://placekitten.com/g/64/64"
+        "avatar": "https://storage.googleapis.com/dnd-js.appspot.com/avatars/jack.png"
     },
     {
         "key": "lia",
         "name": "Lia",
-        "avatar": "http://placekitten.com/g/60/60"
+        "avatar": "https://storage.googleapis.com/dnd-js.appspot.com/avatars/lia.png"
     },
     {
         "key": "sigur",
         "name": "Sigur",
-        "avatar": "http://placekitten.com/g/65/65"
+        "avatar": "https://storage.googleapis.com/dnd-js.appspot.com/avatars/sigur.png"
+    },
+    {
+        "key": "aenil",
+        "name": "Aenil",
+        "avatar": "https://storage.googleapis.com/dnd-js.appspot.com/avatars/aenil.png"
     }
 ]
 
 const monsters = [
     {
         "key": "chuul",
-        "avatar": "http://placekitten.com/g/68/68"
+        "avatar": "https://storage.googleapis.com/dnd-js.appspot.com/avatars/monsters/chuul.png"
     }
 ]
 
