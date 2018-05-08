@@ -8,7 +8,7 @@ const players = [
     },
     {
         "key": "anomen",
-        "name": "Anomen",
+        "name": "Keldorn",
         "avatar": "http://placekitten.com/g/62/62"
     },
     {
@@ -33,15 +33,22 @@ const players = [
     }
 ]
 
-const syncPlayer = async () => {
+const monsters = [
+    {
+        "key": "chuul",
+        "avatar": "http://placekitten.com/g/68/68"
+    }
+]
+
+const sync = async () => {
     for (let player of players) {
-        await db.collection('players').doc(player.key).set({
-            "avatarUrl": player.avatar,
-            "name": player.name
-        })
+        await db.collection('players').doc(player.key).set(player)
+    }
+    for (let monster of monsters) {
+        await db.collection('monsters').doc(monster.key).set(monster)
     }
     
     process.exit(0)
 }
 
-syncPlayer()
+sync()

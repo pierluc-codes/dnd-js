@@ -1,5 +1,5 @@
 <template>
-    <span><img :src="player.avatarUrl" /></span>
+    <span><img :src="player.avatar" /></span>
 </template>
 
 <script>
