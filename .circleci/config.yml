@@ -21,10 +21,10 @@ deployment: &deployment
     - run:
         name: Upload files
         command: |
-          gsutil rsync -d -r dist gs://${BUCKET}/
-          gsutil acl ch -u AllUsers:R gs://${BUCKET}/*.css
-          gsutil acl ch -u AllUsers:R gs://${BUCKET}/*.js
-          gsutil acl ch -u AllUsers:R gs://${BUCKET}/*.html
+          gsutil rsync -d -r dist gs://${BUCKET}/app
+          gsutil acl ch -u AllUsers:R gs://${BUCKET}/app/*.css
+          gsutil acl ch -u AllUsers:R gs://${BUCKET}/app/*.js
+          gsutil acl ch -u AllUsers:R gs://${BUCKET}/app/*.html
 
 version: 2
 jobs:
