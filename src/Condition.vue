@@ -2,8 +2,7 @@
     <div class="tag" v-bind:class="style">
         <span>{{ condition.name }}</span>
         <div v-if="condition.countdown">        
-            <span>&nbsp;</span>
-            <span>({{ condition.countdown }})</span>
+            <span>&nbsp;({{ condition.countdown }})</span>
         </div>
     </div>
 </template>
