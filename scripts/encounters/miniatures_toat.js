@@ -15,25 +15,33 @@ const encounter = {
         {
             id: 1,
             show: true,
-            initiative: 1,
+            initiative: 15,
             base: keldornRef,
             reaction: true,
-            conditions: [],
-            concentration: {}
+            conditions: [
+            ],
+            concentration: {
+                name: "Aura of life"
+            }
         },
         {
             id: 2,
             show: true,
-            initiative: 2,
+            initiative: 13,
             base: liaRef,
             reaction: true,
-            conditions: []
+              conditions: [
+                {
+                    id: "0_AuraOfLife",
+                    name: "Aura of life",
+                    isBonus: true
+                }]
         },
         {
             id: 5,
             show: true,
             active: false,
-            initiative: 3,
+            initiative: 14,
             base: jackRef,
             reaction: true,
             conditions: []
@@ -41,18 +49,28 @@ const encounter = {
         {
             id: 6,
             show: true,
-            initiative: 4,
+            initiative: 19,
             base: alphonseRef,
             reaction: true,
-            conditions: [ ]
+            conditions: [
+                {
+                    id: "0_AuraOfLife",
+                    name: "Aura of life",
+                    isBonus: true
+                }]
         },
         {
             id: 7,
             show: true,
-            initiative: 5,
+            initiative: 13,
             base: sigurRef,
             reaction: true,
-            conditions: [],
+            conditions: [
+                {
+                    id: "0_AuraOfLife",
+                    name: "Aura of life",
+                    isBonus: true
+                }],
             deathSaving: {
                 success: 0,
                 failure: 0
@@ -61,38 +79,55 @@ const encounter = {
         {
             id: 8,
             show: true,
-            initiative: 6,
+            initiative: 13,
             base: fargrimRef,
             reaction: true,
             conditions: [
+                {
+                    id: "0_AuraOfLife",
+                    name: "Aura of life",
+                    isBonus: true,
+                    countdown: 10
+                }
             ]
         },
         {
             id: 9,
             show: true,
-            initiative: 7,
+            initiative: 3,
             base: aenilRef,
             reaction: true,
             conditions: [
+                {
+                    id: "0_AuraOfLife",
+                    name: "Aura of life",
+                    isBonus: true
+                }
             ]
         },
         {
             id: 10,
             show: true,
-            initiative: 8,
+            initiative: 9,
             base: chuulRef,
-            monsterName: "Chuul 1",
+            monsterName: "Swift (rouge)",
             reaction: true,
             conditions: []
         },
         {
             id: 11,
-            show: true,
+            show: false,
             initiative: 9,
             base: chuulRef,
-            monsterName: "Chuul 2",
+            monsterName: "Soirée (gris)",
             reaction: true,
-            conditions: []
+            conditions: [
+                {
+                    id: "0_Hex",
+                    name: "Hex str",
+                    isBonus: false
+                }
+            ]
         }
     ]
 }
